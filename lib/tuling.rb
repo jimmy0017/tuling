@@ -19,24 +19,29 @@ class Tuling
     return "#{ENV['tuling123']}"
   end
 
-  def import(content,userid)
-  	return get_response(full_url(content,userid))
+  def input(content, userid)
+  	parsed_response =  get_response(full_url(content,userid))
+  	return parsed_response
   end
 
-  def get_response(url)
-  	response = HTTParty.get(url)
-  	response
-  end
 
-  def full_url(content,userid=nil)
 
-  	api_key = Tuling.api
+  private
+	  def get_response(url)
+	  	response = HTTParty.get(url)
+	  	parsed_response = response.parsed_response
+	  	parsed_response
+	  end
 
-  	url =  "#{TULING_URL}?key=#{api_key}&info=#{content}&userid=#{userid}"
-  	url = URI::escape(url)
-  	url = URI::parse(url)
-  	return url
-  end
+	  def full_url(content , userid)
+
+	  	api_key = Tuling.api
+
+	  	url =  "#{TULING_URL}?key=#{api_key}&info=#{content}&userid=#{userid}"
+	  	url = URI::escape(url)
+	  	url = URI::parse(url)
+	  	return url
+	  end
 
 
   # api_key = ENV['tuling123']

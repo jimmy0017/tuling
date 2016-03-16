@@ -15,11 +15,20 @@ describe Tuling do
 
     tl = Tuling.new
 
-    it "should have a url" do
-      url = tl.full_url("test","")
-      expect(url).to eq("http://www.tuling123.com/openapi/api?key=#{Tuling.api}&info=test&userid=")
+    it "should have a response" do
+      result = tl.input("test",1)
+      expect(result).not_to be_empty
     end
 
+    it "should have a response without user_id" do
+      result = tl.input("test")
+      expect(result).not_to be_empty
+    end
+
+    it "should return don't know english" do
+      result = tl.input("test", "")
+      expect(result['text']).to eq("我不会说英语的啦，你还是说中文吧。")
+    end
   end
 
 
