@@ -11,11 +11,10 @@ Gem::Specification.new do |s|
     'http://rubygems.org/gems/tuling'
   s.license       = 'MIT'
 
-  s.add_dependency 'httparty'
+  s.add_dependency 'httparty', '~> 0.13.7'
 
 
-  s.add_development_dependency "bundler"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "rspec"
-  s.add_development_dependency 'figaro'
+  s.add_development_dependency 'bundler', '~> 1.11', '>= 1.11.2'
+  s.add_development_dependency 'rake' , '~> 11.1', '>= 11.1.1'
+  s.add_development_dependency 'rspec', '~> 3.4'
 end
