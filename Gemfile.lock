@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tuling (0.0.1)
+    tuling (0.0.2)
       httparty (~> 0.13.7)
 
 GEM
