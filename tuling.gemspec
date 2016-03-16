@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.email       = 'jimmy0017@gmail.com'
   s.files       = ["lib/tuling.rb"]
   s.homepage    =
-    'http://rubygems.org/gems/tuling'
+    'https://github.com/jimmy0017/tuling'
   s.license       = 'MIT'
 
   s.add_dependency 'httparty', '~> 0.13.7'
