@@ -1,18 +1,41 @@
 require 'httparty'
 require 'uri'
 
+
+class TulingError < StandardError
+  attr_reader :data
+
+  def initialize(data)
+    @data = data
+    super
+  end
+end
+
 class Tuling
-  def self.api_check
-    puts "#{ENV['tuling123']}"
+
+  TULING_URL = "http://www.tuling123.com/openapi/api"
+
+  def self.api
+    return "#{ENV['tuling123']}"
   end
 
+  def import(content,userid)
+  	return get_response(full_url(content,userid))
+  end
 
+  def get_response(url)
+  	response = HTTParty.get(url)
+  	response
+  end
 
-  private
-  def full_url
-  	api_key = ENV['tuling123']
-  	url = "http://www.tuling123.com/openapi/api?key=#{ENV['tuling123']}&info=#{content}&userid=#{request[:FromUserName]}"
+  def full_url(content,userid=nil)
 
+  	api_key = Tuling.api
+
+  	url =  "#{TULING_URL}?key=#{api_key}&info=#{content}&userid=#{userid}"
+  	url = URI::escape(url)
+  	url = URI::parse(url)
+  	return url
   end
 
 
