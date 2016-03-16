@@ -5,8 +5,9 @@ require "spec_helper"
 
 describe Tuling do
 
+
+
   it "should have an api key" do
-    #ENV["tuling123"] = "b022470dcaedfaf2841a07d1d25bbb7c"
     expect(Tuling.api).not_to be_empty
   end
 

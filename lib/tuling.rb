@@ -15,6 +15,14 @@ class Tuling
 
   TULING_URL = "http://www.tuling123.com/openapi/api"
 
+  def initialize
+  	if Tuling.api.nil? || Tuling.api == ""
+  		raise TulingError, 'Cannot find api keys'
+  	else
+  		puts ("Tuling Gem reads apis")
+  	end
+  end
+
   def self.api
     return "#{ENV['tuling123']}"
   end
