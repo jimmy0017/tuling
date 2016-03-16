@@ -1,5 +1,7 @@
 # Tuling
 
+[![Gem Version](https://badge.fury.io/rb/tuling.svg)](https://badge.fury.io/rb/tuling)
+
 Tuling123 API Gem(Non-official)
 
 ## Installation
