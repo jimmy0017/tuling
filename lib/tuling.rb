@@ -1,3 +1,5 @@
+# encode: utf-8
+
 require 'HTTParty'
 require 'uri'
 
@@ -45,7 +47,7 @@ class Tuling
 
 	  	api_key = Tuling.api
 
-	  	url =  "#{TULING_URL}?key=#{api_key}&info=#{content}&userid=#{userid}"
+	  	url =  "#{TULING_URL}?key=#{api_key}&info=#{content.encode('utf-8')}&userid=#{userid}"
 	  	url = URI::escape(url)
 	  	url = URI::parse(url)
 	  	return url
